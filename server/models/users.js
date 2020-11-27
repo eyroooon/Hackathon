@@ -28,6 +28,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+   stores: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Blog',
+    },
+  ],
+
 
 });
 
