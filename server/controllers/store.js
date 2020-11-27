@@ -10,7 +10,7 @@ storeRouter.get('/', async (request, response) => {
 });
 
 storeRouter.get('/:id', async (request, response) => {
-  const store = await Store.findById(request.params.id).populate('products',[{name: 1}]);
+  const store = await Store.findById(request.params.id).populate('products');
   response.json(store);
 });
 

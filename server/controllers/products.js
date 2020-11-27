@@ -3,6 +3,11 @@
   const Store = require('../models/store');
 
   productRouter.get('/', async(request, response) => {
+      const products = await Product.find({});
+      response.json(products);
+  });
+
+  productRouter.get('/', async(request, response) => {
       const product = await Product.find({});
       response.json(product);
   });

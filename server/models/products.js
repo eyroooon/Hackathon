@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
     }],
     store: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'products',
+      ref: 'store',
   }
 });
 
@@ -38,4 +38,4 @@ productSchema.set('toJSON', {
   },
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Products', productSchema);
