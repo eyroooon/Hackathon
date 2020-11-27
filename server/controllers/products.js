@@ -7,7 +7,7 @@
       response.json(products);
   });
 
-  productRouter.get('/', async(request, response) => {
+  productRouter.get('/:productID', async(request, response) => {
       const product = await Product.find({});
       response.json(product);
   });

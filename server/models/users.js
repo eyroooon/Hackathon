@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
    stores: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Blog',
+      ref: 'store',
     },
   ],
 

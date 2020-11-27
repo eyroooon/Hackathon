@@ -1,12 +1,13 @@
 const config = require('./utils/config');
 const express = require('express');
 require('express-async-errors');
-const app = express();
 const cors = require('cors');
 const userRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const storeRouter = require('./controllers/store')
 const productRouter = require('./controllers/products')
+const app = express();
+
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');

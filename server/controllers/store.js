@@ -5,7 +5,7 @@ const User = require('../models/users');
 const jwt = require('jsonwebtoken');
 
 storeRouter.get('/', async (request, response) => {
-  const store = await Store.find({}).populate('user', { username: 1, firstName: 1 });
+  const store = await Store.find({}).populate('user');
   response.json(store);
 });
 
