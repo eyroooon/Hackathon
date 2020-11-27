@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 mongoose.set('useFindAndModify', false);
 
-const storeSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: {
     type: String,
     unique: true,
     required: true,
     minlength: 3,
   },
-  contact: {
+  foodType: {
     type: [String],
     unique: true,
     required: true,
@@ -21,11 +21,16 @@ const storeSchema = new mongoose.Schema({
     required: true,
     minlength: 3,
     },
-  location: {
-    type: String,
-    unique: true,
-    required: true,
-    minlength: 3,
+details: [{
+        size: {
+            type: String,
+            default: "default"
+        },
+        price: {
+            type: String,
+            required: true
+        }
+    }],
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
