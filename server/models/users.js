@@ -8,11 +8,20 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 3,
   },
-  name: String,
+  firstName:  {
+    type: String,
+    required: true,
+  },
+  lastName:  {
+    type: String,
+    required: true,
+  },
+  contact: [String] ,
   passwordHash: {
     type: String,
     required: true,
   },
+
 });
 
 userSchema.set('toJSON', {
