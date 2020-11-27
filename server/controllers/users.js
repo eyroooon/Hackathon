@@ -16,13 +16,18 @@ userRouter.post('/', async (req, res) => {
 
   const user = new User({
     username: body.username,
-    name: body.name,
+    firstName: body.firstName,
+    lastName: body.lastName,
+    contact: body.contact,
+    email: body.email,
     passwordHash,
   });
 
   const saveUser = await user.save();
   res.json(saveUser);
-});
+}); 
+
+
 
 userRouter.get('/', async (request, response) => {
   const users = await User.find({})
