@@ -14,17 +14,17 @@ userRouter.post('/', async (req, res) => {
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(body.passwordHash, saltRounds);
 
-  // const user = new User({
-  //   username: body.username,
-  //   firstName: body.firstName,
-  //   lastName: body.lastName,
-  //   contact: body.contact,
-  //   email: body.email,
-  //   passwordHash,
-  // });
+  const user = new User({
+    username: body.username,
+    firstName: body.firstName,
+    lastName: body.lastName,
+    contact: body.contact,
+    email: body.email,
+    passwordHash,
+  });
 
-  // const saveUser = await user.save();
-  res.json(passwordHash);
+  const saveUser = await user.save();
+  res.json(saveUser);
 }); 
 
 
