@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 const uniqueValidator = require('mongoose-unique-validator');
+//pogi
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
