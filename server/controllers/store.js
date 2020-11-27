@@ -9,6 +9,12 @@ storeRouter.get('/', async (request, response) => {
   response.json(store);
 });
 
+storeRouter.get('/:id', async (request, response) => {
+  const store = await Store.findById(request.params.id).populate('products',[{name: 1}]);
+  response.json(store);
+});
+
+
 storeRouter.post('/', async (request, response) => {
   const body = request.body;
 
@@ -25,8 +31,8 @@ storeRouter.post('/', async (request, response) => {
   const newStore = new Store({
     name: body.name,
     description: body.desciption,
-    contact: body.url,
-    location: body.likes,
+    contact: body.contact,
+    location: body.location,
     user: user._id,
   });
   const savedStore = await newStore.save();
@@ -71,17 +77,13 @@ storeRouter.put('/:id', async (request, response) => {
     name: body.name,
     description: body.desciption,
     contact: body.url,
-    location: body.likes,
+    location: body.location,
     user: user._id,
   };
-  
-
-  if (body.title === undefined || body.author === undefined) {
-    return response.status(400).json({ error: 'something is missing' });
-  }
 
 
-  const update = await Blog.findByIdAndUpdate(request.params.id, newStore);
+
+  const update = await Store.findByIdAndUpdate(request.params.id, newStore);
 
   response.json(update);
 });

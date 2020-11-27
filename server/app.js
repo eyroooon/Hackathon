@@ -6,6 +6,7 @@ const cors = require('cors');
 const userRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const storeRouter = require('./controllers/store')
+const productRouter = require('./controllers/product')
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -33,7 +34,10 @@ app.use(bodyParser.json());
 app.use(middleware.tokenExtractor);
 app.use('/api/login', loginRouter);
 app.use('/api/users', userRouter);
-app.use('/api/store', storeRouter);
+app.use('/api/stores', storeRouter);
+app.use('/api/products', productRouter);
+
+
 
 
 app.use(middleware.unknownEndpoint);
